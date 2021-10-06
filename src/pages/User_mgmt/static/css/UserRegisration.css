@@ -1,0 +1,83 @@
+/* for contact page */
+/* for login page */
+* {
+  margin : 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  font-family: 'Roboto Condensed', sans-serif;
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  background-image: url(./images/backgrounds/contact.jpg);
+  background-size: cover;
+  background-blend-mode: screen;
+}
+
+
+
+.header {   
+  background:#f7f7f7;
+  padding: 20px 40px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.header h2{
+  margin: 0;
+}
+
+.form {
+  padding: 30px 40px;
+}
+
+
+.form_ctrl input{
+  border: 2px solid #f0f0f0;
+  border-radius: 4px;
+  display: block;
+  font-family: inherit;
+  font-size: 14px;
+  padding: 10px;
+  width: 100%;
+}
+
+.form_ctrl select {
+  border: 2px solid #f0f0f0;
+  border-radius: 4px;
+  display: block;
+  font-family: inherit;
+  font-size: 14px;
+  padding: 10px;
+  width: 100%;
+}
+
+
+.radiobox{
+  margin-bottom:10px;
+  padding: 15px 10px;
+  position: relative;
+  left:0;
+}
+
+.form_ctrl small {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+  visibility: visible;
+  color:red;
+}
+
+
+.form input[type="submit"]{
+  background-color:rgb(248, 147, 147);
+  border: 2px solid rgb(248, 147, 147);
+  display: block;
+  padding: 10px;
+  width: 100%;
+  font-size: 16px;
+  font-family: inherit;
+  color:black;
+  border-radius: 4px;
+}
