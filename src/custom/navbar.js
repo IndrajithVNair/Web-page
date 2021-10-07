@@ -1,36 +1,45 @@
-import React, { useState } from "react";
+import React from "react";
+import "./navbar.css";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import { Link } from "react-router-dom";
-import { SidebarData } from "./SidebarData";
-import "./Navbar.css";
-import { IconContext } from "react-icons";
+import { SidebarData } from "../components/SidebarData";
 
-function Navbar() {
-  const [sidebar, setSidebar] = useState(false);
-
-  {
-    /* this const subnav is used to check the state of the element that is whether it is clicked or not */
+export default class Navbar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      sidebar: false,
+      SidebarData: SidebarData,
+    };
   }
+  showSidebar = () => {
+    let sidebar = this.state.sidebar;
+    this.setState({
+      sidebar: !sidebar,
+    });
+  };
 
-  const [subnav, setSubnav] = useState(false);
-
-  const showSubnav = () => setSubnav(!subnav);
-
-  const showSidebar = () => setSidebar(!sidebar);
-
-  return (
-    <>
-      <IconContext.Provider value={{ color: "#fff" }}>
+  showSubnav = (index, status) => {
+    let SidebarData = this.state.SidebarData;
+    SidebarData[index]["subNavIsOpen"] = !status;
+    console.log(SidebarData);
+    this.setState({
+      SidebarData: SidebarData,
+    });
+  };
+  render() {
+    return (
+      <>
         <div className="navbar">
           <Link to="#" className="menu-bars-hamburger">
-            <FaIcons.FaBars onClick={showSidebar} />
+            <FaIcons.FaBars onClick={this.showSidebar} />
           </Link>
         </div>
-        <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
+        <nav className={this.state.sidebar ? "nav-menu active" : "nav-menu"}>
           <ul className="nav-menu-items">
             <li className="navbar-toggle">
-              <Link to="#" className="menu-bars" onClick={showSidebar}>
+              <Link to="#" className="menu-bars" onClick={this.showSidebar}>
                 <AiIcons.AiOutlineClose />
               </Link>
             </li>
@@ -42,14 +51,16 @@ function Navbar() {
                       {/* the onclick function checks if the item has a sub nav */}
                       <a
                         href={"#" + item.path}
-                        onClick={item.subNav && showSubnav}
+                        onClick={() => {
+                          this.showSubnav(index, item.subNavIsOpen);
+                        }}
                       >
                         {item.icon}
                         <span>{item.title}</span>
                         {/* this is used to check if the item has subnav and if so to
-                      display them */}
+                      display them  */}
                         <div>
-                          {item.subNav && subnav
+                          {item.subNav && item.subNavIsOpen
                             ? item.iconOpened
                             : item.subNav
                             ? item.iconClosed
@@ -58,7 +69,7 @@ function Navbar() {
                       </a>
                     </li>
                     <ul className="sub-nav">
-                      {subnav &&
+                      {item.subNavIsOpen &&
                         item.subNav.map((item, index) => {
                           return (
                             <li className="nav-text">
@@ -85,9 +96,7 @@ function Navbar() {
             })}
           </ul>
         </nav>
-      </IconContext.Provider>
-    </>
-  );
+      </>
+    );
+  }
 }
-
-export default Navbar;

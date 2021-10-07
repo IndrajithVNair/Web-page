@@ -18,6 +18,28 @@ export const SidebarData = [
     cName: "nav-text",
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
+    subNavIsOpen: false,
+    subNav: [
+      {
+        title: "Users",
+        path: "/reports/users",
+        icon: <IoIcons.IoIosPaper />,
+      },
+      {
+        title: "Revenue",
+        path: "/reports/revenue",
+        icon: <IoIcons.IoIosPaper />,
+      },
+    ],
+  },
+  {
+    title: "Products",
+    path: "/products",
+    icon: <FaIcons.FaCartPlus />,
+    cName: "nav-text",
+    iconClosed: <RiIcons.RiArrowDownSFill />,
+    iconOpened: <RiIcons.RiArrowUpSFill />,
+    subNavIsOpen: false,
 
     subNav: [
       {
@@ -31,12 +53,6 @@ export const SidebarData = [
         icon: <IoIcons.IoIosPaper />,
       },
     ],
-  },
-  {
-    title: "Products",
-    path: "/products",
-    icon: <FaIcons.FaCartPlus />,
-    cName: "nav-text",
   },
 
   {
