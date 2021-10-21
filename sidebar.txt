@@ -1,2 +1,8 @@
 sidebar built following https://www.youtube.com/watch?v=CXa0f4-dWi4
 side bar sub nav https://www.youtube.com/watch?v=mN3P_rv8ad4
+
+npm install styled-components
+npm install react-spring@next
+
+multi stage form html https://bbbootstrap.com/snippets/multi-step-form-wizard-animated-progressbar-53000683
+multistage form reference https://github.com/srdjan/react-multistep
